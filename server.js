@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = 4200;
 
-const loginController = require('./controller/access/loginController.js');
+const accessController = require('./controller/accessController.js');
 
 const securityMiddleware = (req, res, next) => {
     // if (req.url.indexOf("/access/login") != -1) {
@@ -39,10 +39,10 @@ const securityMiddleware = (req, res, next) => {
 }
 
 app.use(securityMiddleware)
-app.use(loginController)
+app.use('/access', accessController);
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("Servidor esperando en el puerto " + port)
 });
 
