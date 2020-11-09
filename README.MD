@@ -8,16 +8,14 @@ It has several characteristics like
 * JWT authentication
 * USD,EUR and ARG currency converter
 * Get the top N of cryptocurrency for each user
-* Connection with coingecko API
+* Connection with coingecko's API
 
 ## Installation
 
 Use the package manager NPM to install the dependencies.
 
 ```bash
-npm install
-
-npm run serve 
+    npm install
 ```
 
 ## Initialization
@@ -25,11 +23,9 @@ npm run serve
 You can start the server either using the default initializer or running unit testing.
 
 ```bash
-npm start 
-
-or
-
-npm test
+    npm start 
+    or
+    npm test
 ```
 
 ## Usage

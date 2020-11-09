@@ -1,3 +1,4 @@
-module.exports = {
-    secret_key = "gamQUk&6b4^msuFo%c1V%Putx"
+exports.security = {
+    "key":"yzKB7EuLWpkptu0LP1ieFLN4j"
 }
+

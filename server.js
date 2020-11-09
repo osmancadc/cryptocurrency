@@ -1,11 +1,10 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
+const express = require('express')
 
-const app = express();
-const port = 4200;
+const app = express()
+const port = 4200
 
 const accessController = require('./controller/accessController.js');
+const cryptoController = require('./controller/cryptoController.js')
 
 const securityMiddleware = (req, res, next) => {
     // if (req.url.indexOf("/access/login") != -1) {
@@ -39,11 +38,12 @@ const securityMiddleware = (req, res, next) => {
 }
 
 app.use(securityMiddleware)
-app.use('/access', accessController);
+app.use('/access', accessController)
+app.use('/crypto',cryptoController)
 
 
 app.listen(process.env.PORT || port, () => {
     console.log("Servidor esperando en el puerto " + port)
-});
+})
 
 module.exports = app
