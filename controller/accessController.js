@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const bodyParser = require('body-parser')
 const config = require('../config/config')
-const dbGetter = require('../database/databaseSingleGetter')
+const dbGetter = require('../database/databaseGetter')
 const dbSetter = require('../database/databaseSetter')
 const jwt = require('jsonwebtoken');
 
@@ -36,15 +36,17 @@ router.post("/login", (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    dbSetter.addRow('Users', req.body, (err) => {
-        if (err)
-            res.status(500).send({
-                "message": err
-            })
-        else
-            res.status(200).send({
-                "message": "Registered user successfully"
-            })
+    if (req.body.password.length < 8) {
+        res.status(418).send({
+            "message": "The password is too short"
+        })
+        return;
+    }
+
+    dbSetter.addRow('Users', req.body, (response) => {
+        res.status(response.status).send({
+            "message": response.message
+        })
     });
 });
 
