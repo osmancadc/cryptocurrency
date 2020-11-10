@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
         password
     } = req.body
 
-    const where = 'username=\'' + username + '\' and password=\'' + password + '\'';
+    const where = `username='${username}' and password='${password}'`
     dbGetter.getData('Users', 'userID,preferred_currency', where, (data) => {
         if (data.length > 0) {
             dbGetter.getData('Currency', 'currency_name', 'currencyID=' + data[0].preferred_currency, (response) => {
