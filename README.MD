@@ -32,7 +32,7 @@ You can start the server either using the default initializer or running unit te
 ### Registration
 ##### To create a new user in the database you need to use
 ```curl
-[POST] localhost:4200/access/login
+[POST] localhost:4200/access/register
 ```
 ###### Request
 ```javascript
@@ -52,6 +52,82 @@ You can start the server either using the default initializer or running unit te
 }
 ```
 
+##### To login and get the access token
+```curl
+[POST] localhost:4200/access/login
+```
+###### Request
+```javascript
+{
+    "username"= <String>,
+    "password"= <String>,
+}
+```
+###### Response
+
+```javascript
+{
+    "message": "Successfully authenticated user",
+    "token": <String>
+}
+```
+
+##### To list all the data of the cryptocurrencies available
+###### Be sure to add the access token in the authorization header 
+```curl
+[GET] localhost:4200/crypto/list
+```
+###### Response
+
+```javascript
+[
+    {
+        "symbol": <String>,
+        "price": <Integer>,
+        "name": <String>,
+        "image": <String>,
+        "last_updated": <String>
+    }
+]
+```
+
+##### To add a cryptocurrency to a user
+```curl
+[POST] localhost:4200/crypto/add
+```
+###### Request
+```javascript
+{
+  "symbol":<String>,
+  "amount":<Integer>
+}
+```
+###### Response
+
+```javascript
+Data inserted successfully
+```
+
+##### To list the top N of cryptocurrencies owned by a user
+###### Be sure to add the access token in the authorization header 
+```curl
+[GET] localhost:4200/crypto/top/:n
+```
+###### Response
+
+```javascript
+[
+    {
+        "symbol": <String>,
+        "ars": <Integer>,
+        "usd": <Integer>,
+        "eur": <Integer>,
+        "name": <String>,
+        "image": <String>,
+        "last_updated": <String>
+    }
+]
+```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
