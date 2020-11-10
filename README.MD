@@ -29,7 +29,7 @@ You can start the server either using the default initializer or running unit te
 ```
 
 ## Usage
-### Registration
+### Access
 ##### To create a new user in the database you need to use
 ```curl
 [POST] localhost:4200/access/register
@@ -71,7 +71,7 @@ You can start the server either using the default initializer or running unit te
     "token": <String>
 }
 ```
-
+### Get crypto data
 ##### To list all the data of the cryptocurrencies available
 ###### Be sure to add the access token in the authorization header 
 ```curl
@@ -90,24 +90,6 @@ You can start the server either using the default initializer or running unit te
     }
 ]
 ```
-
-##### To add a cryptocurrency to a user
-```curl
-[POST] localhost:4200/crypto/add
-```
-###### Request
-```javascript
-{
-  "symbol":<String>,
-  "amount":<Integer>
-}
-```
-###### Response
-
-```javascript
-Data inserted successfully
-```
-
 ##### To list the top N of cryptocurrencies owned by a user
 ###### Be sure to add the access token in the authorization header 
 ```curl
@@ -127,6 +109,24 @@ Data inserted successfully
         "last_updated": <String>
     }
 ]
+```
+
+### Set crypto data
+##### To add a cryptocurrency to a user
+```curl
+[POST] localhost:4200/crypto/add
+```
+###### Request
+```javascript
+{
+  "symbol":<String>,
+  "amount":<Integer>
+}
+```
+###### Response
+
+```javascript
+Data inserted successfully
 ```
 
 ## License
