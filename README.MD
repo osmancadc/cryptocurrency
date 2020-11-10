@@ -42,6 +42,12 @@ You can start the server either using the default initializer or running unit te
     "username"= <String>,
     "password"= <String>,
     "preferred_currency"= <Integer>
+    /*
+        Preferred currency may be one of these options:
+            * 1 = usd
+            * 2 = eur
+            * 3 = ars
+    */
 }
 ```
 ###### Response
