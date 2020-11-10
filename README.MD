@@ -37,7 +37,7 @@ You can start the server either using the default initializer or running unit te
 ###### Request
 ```javascript
 {
-    "name" = <String>,
+    "first_name" = <String>,
     "last_name"= <String>,
     "username"= <String>,
     "password"= <String>,

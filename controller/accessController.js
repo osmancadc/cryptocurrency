@@ -36,6 +36,12 @@ router.post("/login", (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+    if(Object.keys(req.body).length < 5){
+        res.status(400).send({
+            "message": "Parameters missing"
+        })
+        return;
+    }
     if (req.body.password.length < 8) {
         res.status(418).send({
             "message": "The password is too short"
